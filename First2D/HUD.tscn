@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0jhpjj604opy"]
 
-[ext_resource type="Script" path="res://HUD.gd" id="1_fe54l"]
+[ext_resource type="Script" path="res://C#Scripts/HUD.cs" id="1_njwv5"]
 [ext_resource type="FontFile" uid="uid://dawaybxkvx1m0" path="res://fonts/Xolonium-Regular.ttf" id="2_u0wn5"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_016ay"]
@@ -10,7 +10,7 @@ action = &"start_game"
 events = [SubResource("InputEventAction_016ay")]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_fe54l")
+script = ExtResource("1_njwv5")
 
 [node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 5
