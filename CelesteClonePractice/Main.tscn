@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://co6y565dg66da"]
+
+[ext_resource type="Texture2D" uid="uid://3fvqmtgxq554" path="res://celeste_forsaken-city_large_1_noedge.png" id="1_sc000"]
+[ext_resource type="PackedScene" uid="uid://npg43hxsdl1r" path="res://Player.tscn" id="2_ft32p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqi8j"]
+size = Vector2(237, 123.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2d53"]
+size = Vector2(240, 34)
+
+[node name="Main" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_sc000")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(120, 928)
+metadata/_edit_group_ = true
+
+[node name="GroundHitbox" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_lqi8j")
+
+[node name="StartofRoom" type="Marker2D" parent="."]
+position = Vector2(104, 576)
+
+[node name="Spikes" type="StaticBody2D" parent="."]
+position = Vector2(360, 992)
+metadata/_edit_group_ = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="Spikes"]
+shape = SubResource("RectangleShape2D_s2d53")
+
+[node name="Player" parent="." instance=ExtResource("2_ft32p")]
+position = Vector2(184, 584)
