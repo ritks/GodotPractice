@@ -11,6 +11,8 @@ public partial class Player : CharacterBody2D
 	private const int WalkForce = 7500;
 	private const int StopForce = 2000;
 	private const int JumpSpeed = 4000; 
+	private const int DashSpeed = 3500;
+	bool canDash = true;
 	public override void _Ready()
 	{
 		ScreenSize = GetViewportRect().Size;
@@ -26,7 +28,7 @@ public partial class Player : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
     {
 
-		//Start of manual
+		//Basic velocity and movement
 		var velocity = Vector2.Zero;
 		var walk = WalkForce * Input.GetAxis("move_left", "move_right");
 		
@@ -38,10 +40,20 @@ public partial class Player : CharacterBody2D
 		}
 		velocity.X = Mathf.Clamp(velocity.X, -1 * WalkMaxSpeed, WalkMaxSpeed);
 
+		//Applying gravity at every frame
 		velocity.Y += (float)delta * Gravity * 5;
 		
+		//Checking if on floor to jump
 		if(IsOnFloor() && Input.IsActionJustPressed("move_up")){
 			velocity.Y = -JumpSpeed;
+		}
+
+		//Making dash mechanic
+		// bool canDash = true;
+		if((canDash || IsOnFloor()) && Input.IsActionPressed("move_right") && Input.IsActionJustPressed("dash")){
+			velocity.X += DashSpeed;
+			canDash = !IsOnFloor() ? canDash = false : canDash = true;
+
 		}
 
 		Velocity = velocity;
