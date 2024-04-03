@@ -78,11 +78,11 @@ public partial class Player : CharacterBody2D
 
 		}
 
-		// if (canDash && Input.IsActionPressed("move_up") && Input.IsActionJustPressed("dash"))
-		// {
-		// 	velocity.Y -= DashSpeed;
-		// 	canDash = false;
-		// }
+		if (canDash && Input.IsActionPressed("move_up") && Input.IsActionJustPressed("dash"))
+		{
+			velocity.Y -= DashSpeed;
+			canDash = false;
+		}
 
 
 		if (IsOnFloor())
