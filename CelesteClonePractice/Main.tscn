@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://co6y565dg66da"]
+[gd_scene load_steps=9 format=3 uid="uid://co6y565dg66da"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_rwduq"]
 [ext_resource type="Texture2D" uid="uid://3fvqmtgxq554" path="res://celeste_forsaken-city_large_1_noedge.png" id="1_sc000"]
@@ -14,6 +14,9 @@ size = Vector2(237, 123.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2d53"]
 size = Vector2(240, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ladbt"]
+size = Vector2(146, 210)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_rwduq")
 
@@ -27,7 +30,7 @@ position = Vector2(120, 928)
 physics_material_override = SubResource("PhysicsMaterial_sse1x")
 metadata/_edit_group_ = true
 
-[node name="GroundHitbox" type="CollisionShape2D" parent="Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_lqi8j")
 
 [node name="StartPosition" type="Marker2D" parent="."]
@@ -43,3 +46,10 @@ shape = SubResource("RectangleShape2D_s2d53")
 
 [node name="Player" parent="." instance=ExtResource("2_ft32p")]
 position = Vector2(192, 616)
+
+[node name="Ground2nd" type="StaticBody2D" parent="."]
+position = Vector2(552, 872)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2nd"]
+shape = SubResource("RectangleShape2D_ladbt")
