@@ -67,6 +67,7 @@ public partial class Player : CharacterBody2D
 		}
 
 		// NEED TO TEST DASHING UP WIHTOUT DIAGONAL MOVEMENT YET
+		// Change inputs to right - left and up - down
 		if (canDash && Input.IsActionPressed("move_right")
 			&& Input.IsActionPressed("move_up") && Input.IsActionJustPressed("dash"))
 		{
