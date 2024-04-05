@@ -30,6 +30,9 @@ public partial class Player : CharacterBody2D
 
 		//Basic velocity and movement
 		var velocity = Vector2.Zero;
+		var direction = Input.IsActionJustPressed("move_right") - Input.IsActionJustPressed("move_left")
+			+ Input.IsActionJustPressed("move_up") - Input.IsActionJustPressed("move_down");
+
 		var walk = WalkForce * Input.GetAxis("move_left", "move_right");
 
 		if (Mathf.Abs(walk) < WalkForce * 0.2)
