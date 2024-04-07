@@ -13,6 +13,7 @@ public partial class Player : CharacterBody2D
 	private const int JumpSpeed = 4000;
 	private const int DashSpeed = 3500;
 	bool canDash = true;
+	private int CharacterDirection = 1;
 	public override void _Ready()
 	{
 		ScreenSize = GetViewportRect().Size;
@@ -29,9 +30,26 @@ public partial class Player : CharacterBody2D
 	{
 
 		//Basic velocity and movement
+
+		var input = Vector2(Input.IsActionJustPressed("move_right") - Input.IsActionJustPressed("move_left")
+							+ Input.IsActionJustPressed("move_down") - Input.IsActionJustPressed("move_up"));
+
+		// For use in direction of sprites
+		CharacterVelocity.X = input.X;
+		if(CharacterVelocity.X <= 0){
+			CharacterDirection = -1;
+		}
+		else{
+			CharacterDirection = 1;
+		}
+			 
+
+
+
+
+			 
 		var velocity = Vector2.Zero;
-		var direction = Input.IsActionJustPressed("move_right") - Input.IsActionJustPressed("move_left")
-			+ Input.IsActionJustPressed("move_up") - Input.IsActionJustPressed("move_down");
+		
 
 		var walk = WalkForce * Input.GetAxis("move_left", "move_right");
 
