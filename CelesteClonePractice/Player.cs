@@ -31,23 +31,24 @@ public partial class Player : CharacterBody2D
 
 		//Basic velocity and movement
 
-		var input = Vector2(Input.IsActionJustPressed("move_right") - Input.IsActionJustPressed("move_left")
-							+ Input.IsActionJustPressed("move_down") - Input.IsActionJustPressed("move_up"));
+		//Testing with celeste movement demo?
+		// var input = Vector2(Input.IsActionJustPressed("move_right") - Input.IsActionJustPressed("move_left")
+		// 					+ Input.IsActionJustPressed("move_down") - Input.IsActionJustPressed("move_up"));
 
-		// For use in direction of sprites
-		CharacterVelocity.X = input.X;
-		if(CharacterVelocity.X <= 0){
-			CharacterDirection = -1;
-		}
-		else{
-			CharacterDirection = 1;
-		}
+		// // For use in direction of sprites
+		// CharacterVelocity.X = input.X;
+		// if(CharacterVelocity.X <= 0){
+		// 	CharacterDirection = -1;
+		// }
+		// else{
+		// 	CharacterDirection = 1;
+		// }
 			 
 
 
 
 
-			 
+
 		var velocity = Vector2.Zero;
 		
 
